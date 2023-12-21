@@ -4,6 +4,7 @@ import reactor.core.publisher.Flux;
 
 import java.util.Arrays;
 
+// Cold Sequence
 public class Example7_1 {
 
     public static void main(String[] args) throws InterruptedException {

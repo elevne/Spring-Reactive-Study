@@ -4,6 +4,7 @@ import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 
+// Hot Sequence
 public class Example7_2 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -18,13 +19,13 @@ public class Example7_2 {
                         .share();
 
         concertFlux.subscribe(
-                singer -> System.out.println("# Subscriber1 is watching singer: " + singer)
+                singer -> System.out.println("# " + Thread.currentThread() + " Subscriber1 is watching singer: " + singer)
         );
 
         Thread.sleep(2500);
 
         concertFlux.subscribe(
-                singer -> System.out.println("# Subsriber2 is watching singer: " + singer)
+                singer -> System.out.println("# " + Thread.currentThread() + " Subsriber2 is watching singer: " + singer)
         );
 
         Thread.sleep(3000);
