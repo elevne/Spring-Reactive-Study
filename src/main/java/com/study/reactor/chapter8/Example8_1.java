@@ -15,7 +15,6 @@ public class Example8_1 {
                     protected void hookOnSubscribe(Subscription subscription) {
                         request(1);
                     }
-
                     @Override
                     protected void hookOnNext(Integer value) {
                         try {
