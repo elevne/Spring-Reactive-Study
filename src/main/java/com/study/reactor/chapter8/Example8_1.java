@@ -11,10 +11,17 @@ public class Example8_1 {
         Flux.range(1, 5)
                 .doOnRequest(data -> System.out.println("# doOnRequest: " + data))
                 .subscribe(new BaseSubscriber<Integer>() {
+                    /*
+                    * hookOnSubscribe: 최초 데이터 요청 개수 제어
+                    * */
                     @Override
                     protected void hookOnSubscribe(Subscription subscription) {
                         request(1);
                     }
+                    /*
+                    hookOnNext: publisher 가 emit 한 데이터를 전달받아 처리한 후에 publisher
+                    에게 또다시 데이터를 요청하는 역할
+                     */
                     @Override
                     protected void hookOnNext(Integer value) {
                         try {
