@@ -26,8 +26,11 @@ public class TimeBasedTestExample {
     public static Flux<Tuple2<String, Integer>> getVoteCount(Flux<Long> source) {
         return source
                 .zipWith(Flux.just(
-                        Tuples.of("중구", 15400), Tuples.of("서초구", 20020), Tuples.of("강서구", 32040)
-                        ,Tuples.of("강동구", 14506), Tuples.of("서대문구", 35650)
+                        Tuples.of("중구", 15400),
+                        Tuples.of("서초구", 20020),
+                        Tuples.of("강서구", 32040),
+                        Tuples.of("강동구", 14506),
+                        Tuples.of("서대문구", 35650)
                 ))
                 .map(Tuple2::getT2);
     }
